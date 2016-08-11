@@ -17,6 +17,15 @@ provider:
   name: aws
   runtime: nodejs4.3
 
+
+#plugins:
+#  - optimizer
+#  - mocha
+#  - others
+#
+#  custom:
+#    optimizer: true
+
 # you can overwrite defaults here
 defaults:
   stage: dev
@@ -30,9 +39,10 @@ defaults:
 #    - exclude-me.js
 #  artifact: my-service-code.zip
 
-#functions:
-#  hello:
-#    handler: handler.hello
+
+functions:
+  hello:
+    handler: handler.hello
 #    events:
 #        - http:
 #            path: users/create
@@ -48,9 +58,6 @@ defaults:
 #                - X-Amz-Security-Token
 
 # you can add CloudFormation resource templates here
-#resources:
-#  Resources:
-#    newResource:
-#      Type: AWS::S3::Bucket
-#      Properties:
-#        BucketName: newBucket
+resources:
+  Resources:
+    $ref: ./project-resources.json
